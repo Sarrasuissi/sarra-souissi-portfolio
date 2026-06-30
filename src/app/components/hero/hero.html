@@ -1,1 +1,70 @@
-<p>hero works!</p>
+<!-- <p>hero works!</p> -->
+
+
+
+<section id="hero" class="min-h-screen flex items-center bg-gradient-to-br from-dark via-dark to-primary/10">
+  <div class="container-custom">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <!-- Texte -->
+      <div class="flex-1 text-center lg:text-left">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
+          <span class="text-primary">Sarra</span>
+          <span class="text-white">Souissi</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+          Développeuse Full Stack passionnée par les technologies modernes
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+          <a href="#projects" 
+             class="px-8 py-3 bg-primary text-white rounded-full hover:bg-primary/80 transition-all duration-300 transform hover:scale-105">
+            Voir mes projets
+          </a>
+          <a href="#contact" 
+             class="px-8 py-3 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+            Me contacter
+          </a>
+        </div>
+        <div class="flex gap-6 justify-center lg:justify-start mt-8">
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+            <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+            <i class="fab fa-twitter text-2xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Avatar/Image -->
+      <!-- <div class="flex-1 flex justify-center">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+          <div class="absolute inset-0 bg-primary rounded-full opacity-20 animate-pulse"></div>
+          <div class="absolute inset-2 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+            <span class="text-8xl text-white">👩‍💻</span>
+          </div>
+        </div>
+      </div> -->
+
+<!-- Avatar/Image -->
+<div class="flex-1 flex justify-center">
+  <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+    <!-- Cercle d'arrière-plan animé -->
+    <div class="absolute inset-0 bg-primary rounded-full opacity-20 animate-pulse"></div>
+    
+    <!-- Cercle avec l'image -->
+    <div class="absolute inset-2 bg-gradient-to-br from-primary to-secondary rounded-full overflow-hidden ring-4 ring-primary/30">
+      <img 
+        src="assets/images/photo-sarra.webp" 
+        alt="Sarra Souissi"
+        class="w-full h-full object-cover"
+      >
+    </div>
+  </div>
+</div>
+
+      
+    </div>
+  </div>
+</section>
