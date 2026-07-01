@@ -1,6 +1,3 @@
-<!-- <p>projects works!</p> -->
-
-
 <section id="projects" class="py-20">
   <div class="container-custom">
     <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -8,35 +5,79 @@
       <span class="text-white">Projets</span>
     </h2>
     <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-      Découvrez quelques-uns de mes projets récents
+      Découvrez quelques-uns des sites web que j'ai réalisés
     </p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-dark/80 rounded-xl overflow-hidden border border-gray-700 hover:border-primary transition-all duration-300 group">
-        <div class="relative overflow-hidden h-48">
-          <div class="w-full h-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-6xl">
-            🚀
+
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <button
+        *ngFor="let category of categories"
+        (click)="filterByCategory(category)"
+        [class.bg-primary]="selectedCategory === category"
+        [class.text-white]="selectedCategory === category"
+        [class.bg-dark/50]="selectedCategory !== category"
+        [class.text-gray-300]="selectedCategory !== category"
+        [class.border-primary]="selectedCategory === category"
+        class="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border border-gray-700 hover:bg-primary/20 hover:text-primary hover:border-primary"
+      >
+        {{ category }}
+        <span
+          *ngIf="selectedCategory === category"
+          class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full"
+        >
+          {{ filteredProjects.length }}
+        </span>
+      </button>
+    </div>
+
+    <div class="text-center mb-8">
+      <p class="text-gray-400 text-sm">
+        <span class="text-primary font-bold text-lg">{{ filteredProjects.length }}</span>
+        projets trouvés
+        <span *ngIf="selectedCategory !== 'Tous'" class="text-gray-500">
+          dans la catégorie "{{ selectedCategory }}"
+        </span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+      <div
+        *ngFor="let project of filteredProjects"
+        class="bg-dark/80 rounded-xl p-4 md:p-6 border border-gray-700 hover:border-primary transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/10 flex flex-col items-center justify-center group"
+      >
+        <a
+          [href]="project.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full flex flex-col items-center"
+        >
+          <div
+            class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-dark rounded-lg p-2 md:p-3 group-hover:bg-primary/10 transition-all duration-300"
+          >
+            <img
+              [src]="project.logo"
+              [alt]="project.name"
+              class="max-w-full max-h-full object-contain"
+              onerror="
+                this.onerror = null;
+                this.parentElement.innerHTML =
+                  '<span class=\'text-primary text-xl md:text-2xl font-bold\'>' +
+                  this.alt.charAt(0) +
+                  '</span>';
+              "
+            />
           </div>
-          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <a href="#" class="px-6 py-2 bg-primary text-white rounded-full hover:bg-primary/80 transition-colors">
-              Voir le projet
-            </a>
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-white mb-2">Application E-commerce</h3>
-          <p class="text-gray-400 text-sm mb-4">
-            Plateforme de vente en ligne avec Angular et Node.js
+          <p
+            class="text-gray-300 text-xs md:text-sm font-medium mt-2 md:mt-3 text-center group-hover:text-primary transition-colors line-clamp-1"
+          >
+            {{ project.name }}
           </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full">Angular</span>
-            <span class="px-3 py-1 bg-secondary/20 text-secondary text-xs rounded-full">Node.js</span>
-            <span class="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full">MongoDB</span>
-          </div>
-        </div>
+          <span class="text-xs text-gray-500 mt-1">{{ project.category }}</span>
+        </a>
       </div>
-      
-      <!-- Répéter pour d'autres projets -->
+    </div>
+
+    <div *ngIf="filteredProjects.length === 0" class="text-center py-12">
+      <p class="text-gray-400">Aucun projet dans cette catégorie</p>
     </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-<div class="container-custom">
+<!-- <div class="container-custom">
   <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
     <span class="text-primary">Mon</span>
     <span class="text-white">Expérience</span>
@@ -8,10 +8,10 @@
   </p>
   
   <div class="relative">
-    <!-- Ligne verticale -->
+  
     <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20"></div>
     
-    <!-- Expérience 1 -->
+
     <div class="relative flex flex-col md:flex-row items-center mb-12">
       <div class="md:w-1/2 md:pr-12 text-right">
         <div class="bg-dark/80 rounded-xl p-6 border border-primary/20 hover:border-primary/50 transition-all duration-300">
@@ -27,7 +27,7 @@
       <div class="md:w-1/2 md:pl-12"></div>
     </div>
     
-    <!-- Expérience 2 -->
+
     <div class="relative flex flex-col md:flex-row items-center mb-12">
       <div class="md:w-1/2"></div>
       <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-dark z-10"></div>
@@ -43,20 +43,79 @@
       </div>
     </div>
     
-    <!-- Expérience 3 -->
-    <div class="relative flex flex-col md:flex-row items-center">
+  </div>
+</div> -->
+
+<div class="container-custom py-20">
+  <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
+    <span class="text-primary">Mon </span>
+    <span class="text-white">Expérience</span>
+  </h2>
+  <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+    Mon parcours professionnel dans le développement web
+  </p>
+
+  <div class="relative">
+    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20"></div>
+
+    <div class="relative flex flex-col md:flex-row items-center mb-12">
       <div class="md:w-1/2 md:pr-12 text-right">
-        <div class="bg-dark/80 rounded-xl p-6 border border-primary/20 hover:border-primary/50 transition-all duration-300">
-          <span class="text-primary text-sm font-semibold">2020 - 2022</span>
-          <h3 class="text-xl font-bold text-white mt-2">Développeuse Junior</h3>
-          <p class="text-gray-400 mt-1">StartupHub</p>
-          <p class="text-gray-300 mt-3">
-            Développement de sites web et applications mobiles avec Angular et Ionic.
+        <div
+          class="bg-dark/80 rounded-xl p-6 border border-primary/20 hover:border-primary/50 transition-all duration-300"
+        >
+          <span class="text-primary text-sm font-semibold">{{ experiences[0].period }}</span>
+          <h3 class="text-xl font-bold text-white mt-2">{{ experiences[0].title }}</h3>
+          <p class="text-gray-400 mt-1">
+            {{ experiences[0].company }} — {{ experiences[0].location }}
           </p>
+          <p class="text-gray-300 mt-3 text-sm leading-relaxed">
+            {{ experiences[0].description }}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-700">
+            <span
+              *ngFor="let tech of experiences[0].technologies"
+              class="px-2.5 py-1 bg-dark border border-gray-700 rounded-lg text-xs text-gray-400 hover:border-primary hover:text-primary transition-colors"
+            >
+              {{ tech }}
+            </span>
+          </div>
         </div>
       </div>
-      <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-dark z-10"></div>
+      <div
+        class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-dark z-10"
+      ></div>
       <div class="md:w-1/2 md:pl-12"></div>
+    </div>
+
+    <div class="relative flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2"></div>
+      <div
+        class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-dark z-10"
+      ></div>
+      <div class="md:w-1/2 md:pl-12">
+        <div
+          class="bg-dark/80 rounded-xl p-6 border border-secondary/20 hover:border-secondary/50 transition-all duration-300"
+        >
+          <span class="text-secondary text-sm font-semibold">{{ experiences[1].period }}</span>
+          <h3 class="text-xl font-bold text-white mt-2">{{ experiences[1].title }}</h3>
+          <p class="text-gray-400 mt-1">
+            {{ experiences[1].company }} — {{ experiences[1].location }}
+          </p>
+          <p class="text-gray-300 mt-3 text-sm leading-relaxed">
+            {{ experiences[1].description }}
+          </p>
+          <!-- Technologies -->
+          <div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-700">
+            <span
+              *ngFor="let tech of experiences[1].technologies"
+              class="px-2.5 py-1 bg-dark border border-gray-700 rounded-lg text-xs text-gray-400 hover:border-secondary hover:text-secondary transition-colors"
+            >
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

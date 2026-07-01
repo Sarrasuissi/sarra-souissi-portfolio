@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-          "allowedCommonJsDependencies": ["@emailjs/browser"],
+            "allowedCommonJsDependencies": ["@emailjs/browser"],
 
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
@@ -31,9 +31,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -85,9 +83,4 @@
       }
     }
   }
-
-
-
-
-
 }
